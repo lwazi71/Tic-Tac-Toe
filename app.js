@@ -1,23 +1,25 @@
 const gameBoard = (() => {
+    let board = ['X','X','X','X','X','O','O','O','O'];
     const playerGame = (name,marker) => {
-        return {name,marker};
+        const sayHello = () => console.log('hello!');
+        return {name,marker,sayHello};
     };
-    const player1 = playerGame('player 1', 'X');
-    const player2 = playerGame('player 2', 'O')
-    let borard = 
-    ['X','X','X','X','X','O','O','O','O'];
     return {
         playerGame,
-        player1,
-        player2,
-        borard,
+        board,
     };
 })();
 
+const player1 = playerGame('Lwazi','X');
+const player2 = playerGame('Oliva','O');
+
 function render(){
-    for(i = 0; i < borard.length; i++){
-        let game = document.getElementById("game");
+    let game = document.getElementById("board");
+    table.innerHTML = "";
+    var tr = "";
+    board.array.forEach(element => {
+        
+    });
+    
 
-
-    }
 }
