@@ -1,25 +1,31 @@
 const gameBoard = (function() {
-    let board = ['X', 'X', 'X', 'X', 'X', 'O', 'O', 'O', 'O'];
-
+    let board = 
+    ['X','O','X','O','X','O','X','O','X','O','X'];
     function displayBoard(){
-        for(i = 0; i < board.length; i++){
-        var tableBody = document.getElementById('t-body');
-        const tr = document.createElement('tr');
-        const content = `
-        <td>${board[0]}</td>
-        <td>${board[1]}</td>
-        <td>${board[2]}</td>
-        <td>${board[3]}</td>
-        <td>${board[4]}</td>
-        <td>${board[5]}</td>
-        <td>${board[6]}</td>
-        <td>${board[7]}</td>
-        <td>${board[8]}</td>`;
+      for(i = 0; i < board.length; i++){
+          const tic = document.querySelector('.cell');
+          const tic1 = document.querySelector('.cell1');
+          const tic2 = document.querySelector('.cell2');
+          const tic3 = document.querySelector('.cell3');
+          const tic4 = document.querySelector('.cell4');
+          const tic5 = document.querySelector('.cell5');
+          const tic6 = document.querySelector('.cell6');
+          const tic7 = document.querySelector('.cell7');
+          const tic8 = document.querySelector('.cell8');
 
-        tr.innerHTML = content;
-        tableBody.appendChild(tr)
+          tic.innerHTML = board[0];
+          tic1.innerHTML = board[1];
+          tic2.innerHTML = board[2];
+          tic3.innerHTML = board[5];
+          tic4.innerHTML = board[6];
+          tic5.innerHTML = board[7];
+          tic6.innerHTML = board[8];
+          tic7.innerHTML = board[9];
+          tic8.innerHTML = board[10]
+
     }
 }
+displayBoard()
     const playerGame = (name, marker) => {
         const sayHello = () => console.log('hello!');
         return { name,marker,sayHello
