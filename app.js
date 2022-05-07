@@ -1,9 +1,9 @@
 const gameBoard = (() => {
-    let board = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'];
-    
-    var boxes = document.getElementsByTagName("td");
-    const boardBoxes = document.querySelectorAll("#display").forEach(e => e.addEventListener('click', playerMovement));
-    var XO = "X";
+    let board = [];
+
+    const boardBoxes = document.querySelectorAll("#display")
+    boardBoxes.forEach(e => e.addEventListener('click', playerMovement))
+    var XO = "X"
 
     function displayBoard() {
         for (i = 0; i < board.length; i++) {
@@ -21,15 +21,17 @@ const gameBoard = (() => {
     displayBoard();
 
     function playerMovement() {
-        this.innerHTML = XO;
-        XO = (XO == "X" ? "O" : "X")
+        this.innerText = XO;
+        XO = (XO == "X" ? "O" :"X")
+
+        function spaceTaken() {
+            if (boardBoxes.innerText = "O") {
+
+                for (var i = 0; i < boardBoxes.length; i++) {
+                    boardBoxes[i].display = 'block';
+                }
+            }
+        }
+        spaceTaken()
     }
-    /*
-    const createPlayer = (name,marker) => {
-           var XO = "X";
-        return {name,marker}
-    }
-    const lwazi = createPlayer('lwazi','X')
-    const sophia = createPlayer('sophia','O')
-*/
 })();
