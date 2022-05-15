@@ -1,9 +1,6 @@
 const gameBoard = (() => {
+    var XO = "X";
     let board = [];
-
-    const boardBoxes = document.querySelectorAll("#display")
-    boardBoxes.forEach(e => e.addEventListener('click', playerMovement))
-    var XO = "X"
 
     function displayBoard() {
         for (i = 0; i < board.length; i++) {
@@ -21,17 +18,25 @@ const gameBoard = (() => {
     displayBoard();
 
     function playerMovement() {
-        this.innerText = XO;
-        XO = (XO == "X" ? "O" :"X")
+        XO = (XO == "X" ? "O" : "X")
 
-        function spaceTaken() {
-            if (boardBoxes.innerText = "O") {
-
-                for (var i = 0; i < boardBoxes.length; i++) {
-                    boardBoxes[i].display = 'block';
-                }
-            }
-        }
-        spaceTaken()
     }
+
+    function playGame() {
+        if (this.innerHTML == '') {
+            this.innerHTML = XO;
+            playerMovement();
+        }
+    }
+
+    var boardBoxes = document.getElementById("piece").getElementsByTagName("td");
+    for (var i = 0; i < boardBoxes.length; i++) {
+        boardBoxes[i].onclick = playGame;
+    }
+    document.getElementById("reset").onclick = function() {
+        for (var i in boardBoxes) {
+            boardBoxes[i].innerHTML = '';
+        }
+    }
+
 })();
