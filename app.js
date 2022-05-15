@@ -1,27 +1,37 @@
 const gameBoard = (() => {
-    var XO = "X";
+    let XO = "X";
     let board = [];
-
-    function displayBoard() {
-        for (i = 0; i < board.length; i++) {
-            const tic = document.querySelector('.cell');
-            const tic1 = document.querySelector('.cell1');
-            const tic2 = document.querySelector('.cell2');
-            const tic3 = document.querySelector('.cell3');
-            const tic4 = document.querySelector('.cell4');
-            const tic5 = document.querySelector('.cell5');
-            const tic6 = document.querySelector('.cell6');
-            const tic7 = document.querySelector('.cell7');
-            const tic8 = document.querySelector('.cell8');
+    var playerDisplay = document.querySelector("#para-display")
+    var tds = document.querySelectorAll("td");
+    
+    function playerMovement(){
+        if(XO === 'X'){
+            XO = "O";
+            playerDisplay.innerHTML = "Os turn"
+        }
+        else {
+            XO = "X";
+            playerDisplay.innerHTML = "X's turn"
         }
     }
-    displayBoard();
-
-    function playerMovement() {
-        XO = (XO == "X" ? "O" : "X")
-
+    
+    const winningCombos = [
+    [1,4,7],
+    [2,5,8],
+    [3,6,9],
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [1,5,9],
+    [3,5,7]
+];
+    function checkWinner(XO){
+        return winningCombos.some(function (config) {
+            return config.every(function (idx) {
+                return tds[idx].textContent == XO;
+            })
+        })
     }
-
     function playGame() {
         if (this.innerHTML == '') {
             this.innerHTML = XO;
@@ -38,5 +48,6 @@ const gameBoard = (() => {
             boardBoxes[i].innerHTML = '';
         }
     }
+    
 
 })();
