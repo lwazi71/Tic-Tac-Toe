@@ -43,6 +43,8 @@ const gameBoard = (() => {
     document.getElementById("reset").onclick = function() {
         for (var i in boardBoxes) {
             boardBoxes[i].innerHTML = '';
+            gameResults.innerHTML = "";
+            playerDisplay.innerHTML = "";
         }
     }
 
@@ -77,7 +79,7 @@ const gameBoard = (() => {
 
     function Tie() {
         return cells.forEach((cells) => {
-            return cells.innerText === "X" || cells.innerText === "O";
+            return cells.innerHTML === "X" && cells.innerHTML === "O"
         })
     }
 
