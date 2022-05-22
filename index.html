@@ -11,26 +11,29 @@
     <h1>Tic-Tac-Toe</h1>
     <div id = "game">
       <table id = "piece">
-          <tbody id = "t-body">
+         <div class = "control">
           <tr  id = "board1">
-              <td  id = "display" class = 'cell'></td>
-              <td  id = "display" class = 'vert cell1'></td>
-              <td id = "display" class = "cell2"></td>
+              <td  id = "box" class = 'cell'></td>
+              <td  id = "box" class = 'vert cell1'></td>
+              <td id = "box" class = "cell2"></td>
           </tr>
           <tr id = "board2">
-              <td  id = "display" class = 'hori cell3'></td>
-              <td id = "display" class = "vert hori cell4"></td>
-              <td id = "display" class = "hori cell5"></td>
+              <td  id = "box" class = 'hori cell3'></td>
+              <td id = "box" class = "vert hori cell4"></td>
+              <td id = "box" class = "hori cell5"></td>
           </tr>
           <tr id = "board3">
-              <td  id = "display" class = "cell6"></td>
-              <td id = "display"  class = "vert cell7"></td>
-              <td  id = "display"  class = "cell8"></td>
+              <td  id = "box" class = "cell6"></td>
+              <td id = "box"  class = "vert cell7"></td>
+              <td  id = "box"  class = "cell8"></td>
           </tr>
         </tbody>
+    </div>
       </table>
       <button id = "reset">New Game</button>
-      <p id = "para-display"></p>
+      <p id = "result">It's <span id="para-display">X</span>'s turn.</p>
+      
+      <p id="warning"></p>
 <script src = "app.js" defer></script> 
 </body>
 </html>

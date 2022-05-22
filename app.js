@@ -1,41 +1,38 @@
 const gameBoard = (() => {
-    let XO = "X";
-    let board = [];
+    var initialPLayer = "X";
+    var board = [];
+    var gameResults = document.querySelector('#warning');
     var playerDisplay = document.querySelector("#para-display")
-    var tds = document.querySelectorAll("td");
-    
-    function playerMovement(){
-        if(XO === 'X'){
-            XO = "O";
-            playerDisplay.innerHTML = "Os turn"
-        }
-        else {
-            XO = "X";
-            playerDisplay.innerHTML = "X's turn"
-        }
-    }
-    
+    var cells = document.querySelectorAll("#box");
+    var boardBoxes = document.getElementById("piece").getElementsByTagName("td");
+
     const winningCombos = [
-    [1,4,7],
-    [2,5,8],
-    [3,6,9],
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
-    [1,5,9],
-    [3,5,7]
-];
-    function checkWinner(XO){
-        return winningCombos.some(function (config) {
-            return config.every(function (idx) {
-                return tds[idx].textContent == XO;
-            })
-        })
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ]
+
+
+    function playerMovement() {
+        if (initialPLayer === 'X') {
+            initialPLayer = "O";
+            playerDisplay.innerHTML = "O"
+        } else {
+            initialPLayer = "X";
+            playerDisplay.innerHTML = "X"
+        }
     }
+
     function playGame() {
         if (this.innerHTML == '') {
-            this.innerHTML = XO;
+            this.innerHTML = initialPLayer;
             playerMovement();
+            gameLogic()
         }
     }
 
@@ -48,6 +45,41 @@ const gameBoard = (() => {
             boardBoxes[i].innerHTML = '';
         }
     }
-    
+
+    function gameLogic() {
+        if (checkWinX()) {
+            gameResults.innerHTML = "Player X wins the game"
+        }
+        if (checkWinO()) {
+            gameResults.innerHTML = "Player O wins the game"
+        }
+        if (Tie()) {
+            gameResults.innerHTML = "Tie!!"
+        }
+    }
+    gameLogic()
+
+    function checkWinX() {
+        return winningCombos.some((combination) => {
+            return combination.every((i) => {
+                return cells[i].innerHTML === "X";
+            })
+        })
+    }
+
+    function checkWinO() {
+        return winningCombos.some((combination) => {
+            return combination.every((i) => {
+                return cells[i].innerHTML === "O";
+            })
+        })
+    }
+
+    function Tie() {
+        return cells.forEach((cells) => {
+            return cells.innerText === "X" || cells.innerText === "O";
+        })
+    }
+
 
 })();
