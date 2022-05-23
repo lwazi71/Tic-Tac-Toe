@@ -1,10 +1,10 @@
 const gameBoard = (() => {
     var initialPLayer = "X";
     var board = [];
-    var gameResults = document.querySelector('#warning');
-    var playerDisplay = document.querySelector("#para-display")
-    var cells = document.querySelectorAll("#box");
-    var boardBoxes = document.getElementById("piece").getElementsByTagName("td");
+    const gameResults = document.querySelector('#warning');
+    const playerDisplay = document.querySelector("#para-display")
+    const cells = [...document.querySelectorAll("#box")];
+    const boardIsFull = () => cells.every((val) => val.textContent != "")
 
     const winningCombos = [
         [0, 1, 2],
@@ -55,7 +55,7 @@ const gameBoard = (() => {
         if (checkWinO()) {
             gameResults.innerHTML = "Player O wins the game"
         }
-        if (Tie()) {
+         if (boardIsFull()) {
             gameResults.innerHTML = "Tie!!"
         }
     }
@@ -76,12 +76,5 @@ const gameBoard = (() => {
             })
         })
     }
-
-    function Tie() {
-        return cells.forEach((cells) => {
-            return cells.innerHTML === "X" && cells.innerHTML === "O"
-        })
-    }
-
 
 })();
