@@ -1,10 +1,10 @@
 const gameBoard = (() => {
-    var initialPLayer = "X";
-    var board = [];
-    const gameResults = document.querySelector('#warning');
+    let initialPLayer = "X";
+    let board = [];
     const playerDisplay = document.querySelector("#para-display")
-    const cells = [...document.querySelectorAll("#box")];
+    const gameResults = document.querySelector('#warning');
     const boardIsFull = () => cells.every((val) => val.textContent != "")
+    const cells = [...document.querySelectorAll("#box")]
 
     const winningCombos = [
         [0, 1, 2],
@@ -45,18 +45,25 @@ const gameBoard = (() => {
             boardBoxes[i].innerHTML = '';
             gameResults.innerHTML = "";
             playerDisplay.innerHTML = "";
+            cellsVisible()
         }
     }
 
     function gameLogic() {
         if (checkWinX()) {
             gameResults.innerHTML = "Player X wins the game"
+            playerDisplay.innerHTML === ""
+            cellsInvisible()
+
         }
         if (checkWinO()) {
             gameResults.innerHTML = "Player O wins the game"
+            playerDisplay.innerHTML === ""
+            cellsInvisible()
         }
-         if (boardIsFull()) {
+        if (boardIsFull()) {
             gameResults.innerHTML = "Tie!!"
+            playerDisplay.innerHTML === ""
         }
     }
     gameLogic()
@@ -75,6 +82,17 @@ const gameBoard = (() => {
                 return cells[i].innerHTML === "O";
             })
         })
+    }
+
+    function cellsInvisible(){
+        for (var i = 0; i < cells.length; i++){
+            cells[i].classList.add('invisible-box')
+        }
+    }
+    function cellsVisible(){
+        for (var i = 0; i < cells.length; i++){
+            cells[i].classList.remove('invisible-box')
+        }
     }
 
 })();

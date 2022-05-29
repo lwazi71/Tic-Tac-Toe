@@ -9,9 +9,7 @@
 </head>
 <body>
     <h1>Tic-Tac-Toe</h1>
-    <div id = "game">
       <table id = "piece">
-         <div class = "control">
           <tr  id = "board1">
               <td  id = "box" class = 'cell'></td>
               <td  id = "box" class = 'vert cell1'></td>
@@ -22,18 +20,24 @@
               <td id = "box" class = "vert hori cell4"></td>
               <td id = "box" class = "hori cell5"></td>
           </tr>
+
           <tr id = "board3">
               <td  id = "box" class = "cell6"></td>
               <td id = "box"  class = "vert cell7"></td>
               <td  id = "box"  class = "cell8"></td>
           </tr>
         </tbody>
-    </div>
       </table>
+      <div id= "player1">
+        <p id = "text1">Player 1:</p>
+        <input type = "text" id = "player1" name = "player1"> <br> <br>
+    </div>
+      <div id = "game-data">
       <button id = "reset">New Game</button>
+    </div>
       <p id = "result">It's <span id="para-display">X</span>'s turn.</p>
-      
       <p id="warning"></p>
+
 <script src = "app.js" defer></script> 
 </body>
 </html>

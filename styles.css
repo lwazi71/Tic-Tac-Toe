@@ -16,3 +16,14 @@ table{
     border-top:2px solid black;
     border-bottom:2px solid black;
 }
+#game-data{
+    text-align: center;
+}
+.invisible-box{
+    pointer-events: none;
+}
+#player1{
+    width:60px;
+    position: relative;
+    top:-44px;
+}
