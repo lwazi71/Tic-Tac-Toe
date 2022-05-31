@@ -19,11 +19,34 @@ table{
 #game-data{
     text-align: center;
 }
+#game-keep{
+    text-align: center;
+}
 .invisible-box{
     pointer-events: none;
 }
 #player1{
-    width:60px;
+    width:80px;
+    position:relative;
+    top:-150px;
+    margin-right: auto;
+}
+#player2{
+    width:80px;
+    margin-left:auto;
+    top:-165px;
+    left:-3px;
     position: relative;
-    top:-44px;
+}
+.input1{
+    position:fixed;
+    top:55px;
+}
+.stick-to-right{
+    float:right;
+}
+.input2{
+    position: fixed;
+    right:10px;
+    top:44px;
 }

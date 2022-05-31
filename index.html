@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
-    <link rel = "stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Tic-Tac-Toe</h1>
-      <table id = "piece">
-          <tr  id = "board1">
-              <td  id = "box" class = 'cell'></td>
-              <td  id = "box" class = 'vert cell1'></td>
-              <td id = "box" class = "cell2"></td>
-          </tr>
-          <tr id = "board2">
-              <td  id = "box" class = 'hori cell3'></td>
-              <td id = "box" class = "vert hori cell4"></td>
-              <td id = "box" class = "hori cell5"></td>
-          </tr>
-
-          <tr id = "board3">
-              <td  id = "box" class = "cell6"></td>
-              <td id = "box"  class = "vert cell7"></td>
-              <td  id = "box"  class = "cell8"></td>
-          </tr>
-        </tbody>
-      </table>
-      <div id= "player1">
-        <p id = "text1">Player 1:</p>
-        <input type = "text" id = "player1" name = "player1"> <br> <br>
-    </div>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Tic-Tac-Toe</title>
+      <link rel = "stylesheet" href="styles.css">
+   </head>
+   <body>
+      <h1>Tic-Tac-Toe</h1>
+      <div id = "container">
+         <table id = "piece">
+            <tr  id = "board1">
+               <td  id = "box" class = 'cell'></td>
+               <td  id = "box" class = 'vert cell1'></td>
+               <td id = "box" class = "cell2"></td>
+            </tr>
+            <tr id = "board2">
+               <td  id = "box" class = 'hori cell3'></td>
+               <td id = "box" class = "vert hori cell4"></td>
+               <td id = "box" class = "hori cell5"></td>
+            </tr>
+            <tr id = "board3">
+               <td  id = "box" class = "cell6"></td>
+               <td id = "box"  class = "vert cell7"></td>
+               <td  id = "box"  class = "cell8"></td>
+            </tr>
+            </tbody>
+         </table>
+         <span id= "player1">
+         <input type = "text" id = "player1" name = "player1"> 
+         </span>
+         <div id= "player2">
+            <input type = "text" id = "player2" name = "player1"> 
+         </div>
+      </div>
       <div id = "game-data">
-      <button id = "reset">New Game</button>
+         <button id = "reset">New Game</button>
+      </div>
+      <div id = "game-keep">
+         <p id = "result">It's <span id="para-display">X</span>'s turn.</p>
+         <p id="warning"></p>
+      </div>
+      <h4 class = "input1">Player 1</h4>
+      <div class = stick-to-right>
+      <h4 class = "input2">Player 2</h4>
     </div>
-      <p id = "result">It's <span id="para-display">X</span>'s turn.</p>
-      <p id="warning"></p>
-
-<script src = "app.js" defer></script> 
-</body>
+      <script src = "app.js" defer></script> 
+   </body>
 </html>
-
