@@ -6,6 +6,11 @@ const gameBoard = (() => {
     const boardIsFull = () => cells.every((val) => val.textContent != "")
     const cells = [...document.querySelectorAll("#box")]
 
+    function playerForm(){
+        
+    }
+
+
     const winningCombos = [
         [0, 1, 2],
         [3, 4, 5],
@@ -35,7 +40,6 @@ const gameBoard = (() => {
             gameLogic()
         }
     }
-
     var boardBoxes = document.getElementById("piece").getElementsByTagName("td");
     for (var i = 0; i < boardBoxes.length; i++) {
         boardBoxes[i].onclick = playGame;
@@ -84,15 +88,15 @@ const gameBoard = (() => {
         })
     }
 
-    function cellsInvisible(){
-        for (var i = 0; i < cells.length; i++){
+    function cellsInvisible() {
+        for (var i = 0; i < cells.length; i++) {
             cells[i].classList.add('invisible-box')
         }
     }
-    function cellsVisible(){
-        for (var i = 0; i < cells.length; i++){
+
+    function cellsVisible() {
+        for (var i = 0; i < cells.length; i++) {
             cells[i].classList.remove('invisible-box')
         }
     }
-
 })();

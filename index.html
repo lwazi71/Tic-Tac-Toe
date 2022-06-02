@@ -9,6 +9,23 @@
    </head>
    <body>
       <h1>Tic-Tac-Toe</h1>
+      <div class = "center">
+          <h1>Players</h1>
+          <form method = "submit">
+              <div class="txt_field">
+                <input type = "text" required>
+                <span></span>
+                <label>Player 1</label>
+            </div>
+            <div class="txt_field">
+                <input type = "text" required>
+                <span></span>
+                <label>Player 2</label>
+            </div>
+            <input type = "submit" value = "AI?">
+            <input type = "submit" value = "Play">
+          </form>
+      </div>
       <div id = "container">
          <table id = "piece">
             <tr  id = "board1">
@@ -28,24 +45,15 @@
             </tr>
             </tbody>
          </table>
-         <span id= "player1">
-         <input type = "text" id = "player1" name = "player1"> 
-         </span>
-         <div id= "player2">
-            <input type = "text" id = "player2" name = "player1"> 
-         </div>
       </div>
       <div id = "game-data">
          <button id = "reset">New Game</button>
       </div>
       <div id = "game-keep">
-         <p id = "result">It's <span id="para-display">X</span>'s turn.</p>
+         <p id = "result">It's <span id="para-display"></span>'s turn.</p>
          <p id="warning"></p>
       </div>
-      <h4 class = "input1">Player 1</h4>
-      <div class = stick-to-right>
-      <h4 class = "input2">Player 2</h4>
     </div>
-      <script src = "app.js" defer></script> 
+    <script type="text/javascript" src="app.js"></script>
    </body>
 </html>
