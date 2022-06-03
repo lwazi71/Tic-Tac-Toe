@@ -6,6 +6,7 @@ const gameBoard = (() => {
     const boardIsFull = () => cells.every((val) => val.textContent != "");
     const cells = [...document.querySelectorAll("#box")];
     const playerForm = document.querySelector(".player-form");
+    const playerBox = document.querySelector(".center");
     const playerOne = document.getElementById("player1");
     const playerTwo = document.getElementById("player2");
     const playerPlay = document.querySelector(".user");
@@ -17,11 +18,20 @@ const gameBoard = (() => {
 
     playerPlay.addEventListener("click", displayPlayers)
 
+    playerBox.onsubmit = function(event) {
+        hidingForm(event);
+    }
+
+    function hidingForm(event) {
+        event.target.style.display = "none";
+        playerBox.style.display = "none";
+    }
+
     function displayPlayers() {
         const leftDisplay = document.querySelector(".player1").value
         playerOne.innerHTML = leftDisplay;
 
-        const rightDisplay =  document.querySelector(".player2").value
+        const rightDisplay = document.querySelector(".player2").value
         playerTwo.innerHTML = rightDisplay;
     }
 
@@ -54,18 +64,27 @@ const gameBoard = (() => {
             gameLogic()
         }
     }
-    var boardBoxes = document.getElementById("piece").getElementsByTagName("td");
-    for (var i = 0; i < boardBoxes.length; i++) {
-        boardBoxes[i].onclick = playGame;
-    }
-    document.getElementById("reset").onclick = function() {
-        for (var i in boardBoxes) {
-            boardBoxes[i].innerHTML = '';
-            gameResults.innerHTML = "";
-            playerDisplay.innerHTML = "";
-            cellsVisible()
+
+    function newGame() {
+        var boardBoxes = document.getElementById("piece").getElementsByTagName("td");
+        for (var i = 0; i < boardBoxes.length; i++) {
+            boardBoxes[i].onclick = playGame;
+        }
+        document.getElementById("reset").onclick = function() {
+            for (var i in boardBoxes) {
+                boardBoxes[i].innerHTML = '';
+                gameResults.innerHTML = "";
+                playerDisplay.innerHTML = "";
+                playerOne.innerHTML = "Player-1";
+                playerTwo.innerHTML = "Player-2";
+                playerBox.style.display = "block";
+                playerForm.style.display = "block"
+                playerForm.reset();
+                cellsVisible()
+            }
         }
     }
+    newGame()
 
     function gameLogic() {
         if (checkWinX()) {

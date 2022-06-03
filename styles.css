@@ -39,8 +39,8 @@ form .txt_field{
     background: none;
     outline:none;
 }
-.hide-txt{
-    visibility: hidden;
+.hide-element{
+    display:none;
 }
 .txt_field label{
     position: absolute;
@@ -121,6 +121,7 @@ table{
     position:relative;
     top:-150px;
     margin-right: auto;
+    font-weight:700;
 }
 #player2{
     width:80px;
@@ -128,4 +129,5 @@ table{
     top:-165px;
     left:-3px;
     position: relative;
+    font-weight:700;
 }
