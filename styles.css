@@ -39,6 +39,9 @@ form .txt_field{
     background: none;
     outline:none;
 }
+.hide-txt{
+    visibility: hidden;
+}
 .txt_field label{
     position: absolute;
     top:50%;
@@ -68,7 +71,7 @@ form .txt_field{
 .txt_field input:focus ~ span::before{
     width:100%;
 }
-input[type = "submit"]{
+button[type = "submit"]{
     width:95%;
     height: 50px;
     border: 1px solid;
@@ -80,12 +83,10 @@ input[type = "submit"]{
     cursor: pointer;
     outline:none;
 }
-input[type = "submit"]:hover{
+button[type = "submit"]:hover{
     border-color: #2691d9;
     transition: .5s;
 }
-
-
 
 h1{
     text-align: center;
@@ -113,4 +114,18 @@ table{
 }
 .invisible-box{
     pointer-events: none;
+}
+#player1{
+    width:60px;
+    width:80px;
+    position:relative;
+    top:-150px;
+    margin-right: auto;
+}
+#player2{
+    width:80px;
+    margin-left:auto;
+    top:-165px;
+    left:-3px;
+    position: relative;
 }

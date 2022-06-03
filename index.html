@@ -10,20 +10,17 @@
    <body>
       <h1>Tic-Tac-Toe</h1>
       <div class = "center">
-          <h1>Players</h1>
-          <form method = "submit">
+          <h1>Player Names</h1>
+          <form class = "player-form" method = "submit">
               <div class="txt_field">
-                <input type = "text" required>
+                 <input name = "player1" class = "player1" type = "text" required>
                 <span></span>
-                <label>Player 1</label>
             </div>
             <div class="txt_field">
-                <input type = "text" required>
+                <input name = "player2" class = "player2" type = "text" required>
                 <span></span>
-                <label>Player 2</label>
             </div>
-            <input type = "submit" value = "AI?">
-            <input type = "submit" value = "Play">
+            <button class = "user" type = "submit" value = "Play">Play!</button>
           </form>
       </div>
       <div id = "container">
@@ -45,6 +42,8 @@
             </tr>
             </tbody>
          </table>
+         <p id ="player1">Player-1</p>
+         <p id = "player2">player-2</p>
       </div>
       <div id = "game-data">
          <button id = "reset">New Game</button>

@@ -1,15 +1,29 @@
 const gameBoard = (() => {
     let initialPLayer = "X";
     let board = [];
-    const playerDisplay = document.querySelector("#para-display")
+    const playerDisplay = document.querySelector("#para-display");
     const gameResults = document.querySelector('#warning');
-    const boardIsFull = () => cells.every((val) => val.textContent != "")
-    const cells = [...document.querySelectorAll("#box")]
+    const boardIsFull = () => cells.every((val) => val.textContent != "");
+    const cells = [...document.querySelectorAll("#box")];
+    const playerForm = document.querySelector(".player-form");
+    const playerOne = document.getElementById("player1");
+    const playerTwo = document.getElementById("player2");
+    const playerPlay = document.querySelector(".user");
 
-    function playerForm(){
-        
+    function handleForm(event) {
+        event.preventDefault();
     }
+    playerForm.addEventListener('submit', handleForm);
 
+    playerPlay.addEventListener("click", displayPlayers)
+
+    function displayPlayers() {
+        const leftDisplay = document.querySelector(".player1").value
+        playerOne.innerHTML = leftDisplay;
+
+        const rightDisplay =  document.querySelector(".player2").value
+        playerTwo.innerHTML = rightDisplay;
+    }
 
     const winningCombos = [
         [0, 1, 2],
