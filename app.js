@@ -7,9 +7,11 @@ const gameBoard = (() => {
     const cells = [...document.querySelectorAll("#box")];
     const playerForm = document.querySelector(".player-form");
     const playerBox = document.querySelector(".center");
-    const playerOne = document.getElementById("player1");
-    const playerTwo = document.getElementById("player2");
+    const playerLeft = document.getElementById("player1");
+    const playerRight = document.getElementById("player2");
     const playerPlay = document.querySelector(".user");
+    const inputTwo = document.querySelector(".player2")
+    const inputOne = document.querySelector(".player1")
 
     function handleForm(event) {
         event.preventDefault();
@@ -28,11 +30,11 @@ const gameBoard = (() => {
     }
 
     function displayPlayers() {
-        const leftDisplay = document.querySelector(".player1").value
-        playerOne.innerHTML = leftDisplay;
+        const leftDisplay = inputOne.value + " (X) "
+        playerLeft.innerHTML = leftDisplay;
 
-        const rightDisplay = document.querySelector(".player2").value
-        playerTwo.innerHTML = rightDisplay;
+        const rightDisplay = inputTwo.value + " (O) "
+        playerRight.innerHTML = rightDisplay;
     }
 
     const winningCombos = [
@@ -50,10 +52,10 @@ const gameBoard = (() => {
     function playerMovement() {
         if (initialPLayer === 'X') {
             initialPLayer = "O";
-            playerDisplay.innerHTML = "O"
+            playerDisplay.innerHTML = inputTwo.value
         } else {
             initialPLayer = "X";
-            playerDisplay.innerHTML = "X"
+            playerDisplay.innerHTML = inputOne.value
         }
     }
 
@@ -75,8 +77,8 @@ const gameBoard = (() => {
                 boardBoxes[i].innerHTML = '';
                 gameResults.innerHTML = "";
                 playerDisplay.innerHTML = "";
-                playerOne.innerHTML = "Player-1";
-                playerTwo.innerHTML = "Player-2";
+                playerLeft.innerHTML = "Player-1";
+                playerRight.innerHTML = "Player-2";
                 playerBox.style.display = "block";
                 playerForm.style.display = "block"
                 playerForm.reset();
@@ -88,13 +90,13 @@ const gameBoard = (() => {
 
     function gameLogic() {
         if (checkWinX()) {
-            gameResults.innerHTML = "Player X wins the game"
+            gameResults.innerHTML = inputOne.value + " wins the game "
             playerDisplay.innerHTML === ""
             cellsInvisible()
 
         }
         if (checkWinO()) {
-            gameResults.innerHTML = "Player O wins the game"
+            gameResults.innerHTML = inputTwo.value + " wins the game "
             playerDisplay.innerHTML === ""
             cellsInvisible()
         }
