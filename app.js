@@ -5,37 +5,21 @@ const gameBoard = (() => {
     const gameResults = document.querySelector('#warning');
     const boardIsFull = () => cells.every((val) => val.textContent != "");
     const cells = [...document.querySelectorAll("#box")];
-    const playerForm = document.querySelector(".player-form");
-    const playerBox = document.querySelector(".center");
     const playerLeft = document.getElementById("player1");
     const playerRight = document.getElementById("player2");
-    const playerPlay = document.querySelector(".user");
-    const inputTwo = document.querySelector(".player2")
-    const inputOne = document.querySelector(".player1")
+    const playerPrompt1 = prompt("Please enter player name!");
+    const playerPrompt2 = prompt("Please enter player name!");
 
-    function handleForm(event) {
-        event.preventDefault();
+    function refreshPage(){
+        window.location.reload();
+    } 
+   
+    function displayPlayers(){
+    playerLeft.innerHTML = playerPrompt1 + " (X) ";
+
+    playerRight.innerHTML = playerPrompt2 + " (O) ";
     }
-    playerForm.addEventListener('submit', handleForm);
-
-    playerPlay.addEventListener("click", displayPlayers)
-
-    playerBox.onsubmit = function(event) {
-        hidingForm(event);
-    }
-
-    function hidingForm(event) {
-        event.target.style.display = "none";
-        playerBox.style.display = "none";
-    }
-
-    function displayPlayers() {
-        const leftDisplay = inputOne.value + " (X) "
-        playerLeft.innerHTML = leftDisplay;
-
-        const rightDisplay = inputTwo.value + " (O) "
-        playerRight.innerHTML = rightDisplay;
-    }
+    displayPlayers();
 
     const winningCombos = [
         [0, 1, 2],
@@ -52,10 +36,10 @@ const gameBoard = (() => {
     function playerMovement() {
         if (initialPLayer === 'X') {
             initialPLayer = "O";
-            playerDisplay.innerHTML = inputTwo.value
+            playerDisplay.innerHTML = playerPrompt2
         } else {
             initialPLayer = "X";
-            playerDisplay.innerHTML = inputOne.value
+            playerDisplay.innerHTML = playerPrompt1
         }
     }
 
@@ -74,15 +58,8 @@ const gameBoard = (() => {
         }
         document.getElementById("reset").onclick = function() {
             for (var i in boardBoxes) {
-                boardBoxes[i].innerHTML = '';
-                gameResults.innerHTML = "";
-                playerDisplay.innerHTML = "";
-                playerLeft.innerHTML = "Player-1";
-                playerRight.innerHTML = "Player-2";
-                playerBox.style.display = "block";
-                playerForm.style.display = "block"
-                playerForm.reset();
-                cellsVisible()
+                refreshPage()
+                
             }
         }
     }
@@ -90,13 +67,13 @@ const gameBoard = (() => {
 
     function gameLogic() {
         if (checkWinX()) {
-            gameResults.innerHTML = inputOne.value + " wins the game "
+            gameResults.innerHTML = playerPrompt1 + " wins the game "
             playerDisplay.innerHTML === ""
             cellsInvisible()
 
         }
         if (checkWinO()) {
-            gameResults.innerHTML = inputTwo.value + " wins the game "
+            gameResults.innerHTML = playerPrompt2 + " wins the game "
             playerDisplay.innerHTML === ""
             cellsInvisible()
         }
