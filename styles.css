@@ -4,11 +4,12 @@ body{
     font-family: montserrat;
     height:100vh;
     overflow: hidden;
-    background-color: white;
+    background-color: rgba(236,249,250,0.295);
 }
 
 h1{
     text-align: center;
+    font-size:43px;
 }
 td{
     width:100px;
@@ -28,11 +29,18 @@ table{
 .player-heading{
     color:white;
 }
+#piece{
+    width:400px;
+    height:400px;
+}
 #game-data{
     text-align: center;
 }
 #game-keep{
     text-align: center;
+}
+.playersfont{
+    font-size:33px;
 }
 .invisible-box{
     pointer-events: none;
@@ -44,6 +52,7 @@ table{
     top:-150px;
     margin-right: auto;
     font-weight:700;
+    font-size:20px;
 }
 #player2{
     width:80px;
@@ -52,4 +61,11 @@ table{
     left:-3px;
     position: relative;
     font-weight:700;
+    font-size:20px;
+}
+#warning{
+    font-size:24px;
+}
+#result{
+    font-size:24px;
 }
