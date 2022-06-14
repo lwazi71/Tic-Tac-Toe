@@ -29,6 +29,9 @@ table{
 .player-heading{
     color:white;
 }
+#box{
+    font-size:20px;
+}
 #piece{
     width:400px;
     height:400px;
@@ -58,7 +61,7 @@ table{
     width:80px;
     margin-left:auto;
     top:-165px;
-    left:-3px;
+    right:-10px;
     position: relative;
     font-weight:700;
     font-size:20px;
