@@ -14,6 +14,7 @@ h1{
 td{
     width:100px;
     height:100px;
+    text-align: center;
 }
 table{
     margin:5px auto;
@@ -48,21 +49,17 @@ table{
 .invisible-box{
     pointer-events: none;
 }
+#playerContainer{
+    display: flex;
+    justify-content: space-around;
+}
 #player1{
-    width:60px;
-    width:80px;
-    position:relative;
-    top:-150px;
-    margin-right: auto;
+
     font-weight:700;
     font-size:20px;
 }
 #player2{
-    width:80px;
-    margin-left:auto;
-    top:-165px;
-    right:-10px;
-    position: relative;
+
     font-weight:700;
     font-size:20px;
 }
